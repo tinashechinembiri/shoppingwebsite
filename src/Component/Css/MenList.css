@@ -1,0 +1,18 @@
+.MenList
+{
+    list-style-type: none;
+}
+
+.list{
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    float: left;
+    border-style: solid;
+
+}
+.image
+{
+    width: 150px;
+    height: 150px;
+}

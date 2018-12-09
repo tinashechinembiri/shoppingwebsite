@@ -1,0 +1,42 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: purple;
+    height: 56px;
+    top: 0;
+    left: 0;
+}
+.logo a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+
+}
+.nav{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+}
+.nav-items a{
+color: white;
+    text-decoration: none;
+}
+.nav-items a:hover,.nav-items a:active{
+    color: green;
+}
+.nav-items ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.nav-items li{
+    padding: 0 0.5rem;
+}
+.make-space{
+    flex: 1;
+}
+.logo{
+    margin-left: 1rem;
+}

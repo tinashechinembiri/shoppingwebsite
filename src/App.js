@@ -1,27 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
+import Men from "./Component/Men";
+import Women from "./Component/Women";
+import Navbar from "./Component/Toolbar/Navbar"
+import SideButton from "./Component/Toolbar/SideButton";
+import Backdrop from "./Component/Toolbar/Backdrop";
+
 
 class App extends Component {
+    state = {
+        checkDrawer:false
+    };
+    onclicksideButton = () => {
+        this.setState(
+            (prev)=>{
+                return {checkDrawer:!prev.checkDrawer}
+            }
+        )};
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+
+      let sideButton;
+      let backdrop;
+      if (this.state.checkDrawer)
+      {
+         sideButton= <SideButton/>
+          backdrop = <Backdrop/>
+
+      }
+    return(
+
+        <div style={{height:'100%'}} className="mainContainer">
+            <Navbar drawerClickHandler={this.onclicksideButton}/>
+            {sideButton}
+            {backdrop}
+
+            <div style={{marginTop:'64px'}}>
+          <Router>
+            <Switch>
+                <Route path='/' exact={true} component={Men}/>
+                <Route path='/women' exact={true} component={Women}/>
+            </Switch>
+
+          </Router>
+            </div>
+        </div>
+              );
   }
 }
 
