@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 
-class Women extends Component {
+class Individual extends Component {
     render() {
         return (
             <div className="Men">
-hhhhhhhhhhhhhh
+;lllllllllllllllllllllllllll
 
             </div>
         );
     }
 }
 
-export default Women;
+export default Individual;

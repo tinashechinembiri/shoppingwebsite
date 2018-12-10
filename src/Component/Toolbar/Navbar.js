@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css'
 import Button from './Button'
 
-const Navbar = props=> (
+const Navbar = props => (
     <header className="navbar">
         <nav className="nav">
             <div>

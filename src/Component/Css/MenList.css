@@ -8,11 +8,18 @@
     zoom: 1;
     *display: inline;
     float: left;
-    border-style: solid;
+    padding: 0 1rem;
+
+
 
 }
 .image
 {
     width: 150px;
     height: 150px;
+}
+.image-list{
+    border-style: solid;
+    list-style-type: none;
+
 }
