@@ -7,6 +7,7 @@ import Women from "./Component/Women";
 import Navbar from "./Component/Toolbar/Navbar"
 import SideButton from "./Component/Toolbar/SideButton";
 import Backdrop from "./Component/Toolbar/Backdrop";
+import Individual from "./Component/Individual";
 
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
 
       let sideButton;
       let backdrop;
-      if (this.state.checkDrawer)
+      if (this.state.checkDrawer === true)
       {
          sideButton= <SideButton/>
           backdrop = <Backdrop/>
@@ -32,22 +33,23 @@ class App extends Component {
     return(
 
         <div style={{height:'100%'}} className="mainContainer">
-            <Navbar drawerClickHandler={this.onclicksideButton}/>
+            <Navbar drawerClickHandler ={this.onclicksideButton}/>
             {sideButton}
             {backdrop}
 
             <div style={{marginTop:'64px'}}>
+
           <Router>
             <Switch>
                 <Route path='/' exact={true} component={Men}/>
-                <Route path='/women' exact={true} component={Women}/>
+                <Route path='/women'exact={true} component={Women}/>
+                <Route path='/items/:id' exact={true} component={Individual}/>
             </Switch>
 
           </Router>
             </div>
         </div>
-              );
-  }
+              )}
 }
 
 export default App;

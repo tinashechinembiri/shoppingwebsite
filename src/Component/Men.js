@@ -17,19 +17,13 @@ class Men extends Component {
     }
     componentWillMount()
     {
-
-
             fetch('/api')
              .then (response => {return response.json()})
                 .then(products => this.setState({products}, console.log(products)))
 
-
-
     }
 
     render() {
-        //const items =  this.state.products.map((d) => <li> key={d._id}</li>)
-     //   console.log(this.state.products.catergory)
 
         return (
             <div className="Men">
