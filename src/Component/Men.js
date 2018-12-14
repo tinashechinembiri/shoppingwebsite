@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MenList from "./MenList";
+import './Css/MenList.css'
 
 
 class Men extends Component {
@@ -7,13 +8,11 @@ class Men extends Component {
     {
         super();
         this.state ={
-            name:'',
+
             products:[
 
             ]
         }
-
-
     }
     componentWillMount()
     {
@@ -22,7 +21,6 @@ class Men extends Component {
                 .then(products => this.setState({products}, console.log(products)))
 
     }
-
     render() {
 
         return (

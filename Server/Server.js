@@ -6,6 +6,7 @@ const Product  = require('./Models/Product');
 const app = express();
 const mongoose = require('mongoose');
 const db = require('./db');
+const cart = require('./Resrcart');
 
 const port = 8020;
 
@@ -17,14 +18,17 @@ mongoose.connect('mongodb://mongo:test1@practiceone-shard-00-00-vcfvo.gcp.mongod
     });
 
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With,Content-Type, Accept");
+    next();
+});
 
 app.use('/',db)
-
-
-
+app.use('/', cart)
 
 
 app.listen(port, ()=> console.log('8020 check the data '))

@@ -23,3 +23,29 @@
     list-style-type: none;
 
 }
+.Men{
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    position: fixed;
+
+}
+.name{
+    padding-bottom: 2%;
+    font-size: xx-large;
+    left: 45%;
+    top: 260px;
+    position: fixed;
+
+}
+.individualimage{
+    width: 500px;
+    height: 500px;
+    top: 200px;
+    position: fixed;
+    left: 0%;
+    border-style: inset;
+    border-color: gray;
+}
