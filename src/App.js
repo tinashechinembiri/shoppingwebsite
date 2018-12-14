@@ -43,7 +43,7 @@ class App extends Component {
             <Switch>
                 <Route path='/' exact={true} component={Men}/>
                 <Route path='/women'exact={true} component={Women}/>
-                <Route path='/items/:id' exact={true} component={Individual}/>
+                <Route path='/:id' exact={true} component={Individual}/>
             </Switch>
 
           </Router>
