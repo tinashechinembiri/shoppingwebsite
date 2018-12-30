@@ -7,11 +7,13 @@
     "dotenv": "^6.2.0",
     "mongodb": "^3.1.10",
     "mongoose": "^5.3.15",
+    "multer": "^1.4.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "reactstrap": "^6.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,7 +32,6 @@
   ],
   "proxy": "http://localhost:8020",
   "devDependencies": {
-    "body-parser": "^1.npm install node-env-run nodemon npm-run-all express-pino-logger pino-colada --save-dev.3",
     "express": "^4.16.4",
     "express-pino-logger": "^4.0.0",
     "node-env-run": "^3.0.2",

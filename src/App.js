@@ -8,6 +8,7 @@ import Navbar from "./Component/Toolbar/Navbar"
 import SideButton from "./Component/Toolbar/SideButton";
 import Backdrop from "./Component/Toolbar/Backdrop";
 import Individual from "./Component/Individual";
+import Cartpage from "./Component//Cartpage";
 
 
 class App extends Component {
@@ -43,7 +44,9 @@ class App extends Component {
             <Switch>
                 <Route path='/' exact={true} component={Men}/>
                 <Route path='/women'exact={true} component={Women}/>
+                <Route path='/cart' exact={true} component={Cartpage}/>
                 <Route path='/:id' exact={true} component={Individual}/>
+
             </Switch>
 
           </Router>

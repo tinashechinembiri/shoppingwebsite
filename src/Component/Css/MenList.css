@@ -1,6 +1,7 @@
 .MenList
 {
     list-style-type: none;
+
 }
 
 .list{
@@ -48,4 +49,19 @@
     left: 0%;
     border-style: inset;
     border-color: gray;
+}
+.buttoncart
+{
+    top: 500px;
+    position: fixed;
+    left: 45%;
+}
+.cartbox{
+    width: 200px;
+    height: 70px;
+    top: 56px;
+    position: fixed;
+    left: 89%;
+    border-style: solid;
+    background-color: lightgreen;
 }

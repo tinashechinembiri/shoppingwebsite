@@ -1,20 +1,16 @@
 var express = require('express');
 const multer = require('multer');
-const path = require('path');
 const router = express.Router();
 const Product  = require('./Models/Product');
-const app = express();
 const mongoose = require('mongoose');
-var fs = require('fs');
+
 
 const  storage = multer.diskStorage(
     {
         destination: function (req,file,cb) {
             cb(null,'./uploads/' )
-
         },
         filename:function (req,file,cb) {
-
             cb(null,  new Date().toISOString().replace(/:/g, '-')+file.originalname);
         }
     }
@@ -30,7 +26,6 @@ const fileFilter = (req,file,cb)=> {
         cb(null,false);
     }
 }
-
 const upload = multer(
     {
         storage:storage,limit:
@@ -39,7 +34,6 @@ const upload = multer(
             }
     }
 )
-
 router.get('/api/:productid', (req,res)=> {
 
     const id = req.params.productid;
@@ -76,20 +70,16 @@ router.post('/api',upload.single('productimage'), (req,res)=>
                 productimage: req.file.path
             }
         )
-       // product.productimage.data= fs.readFileSync(req.file.path)
-       // product.productimage.contentType='image/png';
+
         console.log(req.body)
         product.save()
             .then(
                 results => {
-                    console.log(results)
-
-
+                    console.log(results);
                     res.status(201).json(
                         {
                             message:'handling post to json',
                             createdproduct:product
-
                         });
                 }
             ).catch(err=>{console.log(err); res.status(500).json({errors:err})})
@@ -107,7 +97,6 @@ console.log(req.body)
     {console.log(err)
         res.status(500).json({errors: err})
     })
-
 })
 router.delete('/api/:productid', (req,res) =>
     {

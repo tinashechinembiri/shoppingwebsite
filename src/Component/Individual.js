@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Cart from "./Cart";
 
 class Individual extends Component {
     constructor()
@@ -10,7 +10,8 @@ class Individual extends Component {
             data:[],
             cart:[],
             count: 1
-        }
+        };
+
     }
     getData =()=>{
         try {
@@ -23,42 +24,44 @@ class Individual extends Component {
         }
 
     }
-    add = (id) => {
+
+    add = () => {
         var found = false;
 
         var update = this.state.cart.map(
             (cartitems) =>
             {
-                if (cartitems.productquantity >=1)
+                this.state.count++
+                if (cartitems.productquantity >= 1)
                 {
+
                     found = true;
                     cartitems.productquantity = this.state.count;
-                    this.state.count++;
+                    cartitems.price = this.state.data.price * this.state.count
+
+
                     return cartitems
                 }
                 else {
                     return cartitems
-
-                }}
+                }
+                this.state.count++
+            }
 
         )
         if (!found)
         {
-            update.push({id: this.state.data._id, name:this.state.data.name, Type:this.state.data.Type, price:this.state.data.price, productquantity:this.state.count})
+
+
+            update.push({id:this.state.data._id, name:this.state.data.name, Type:this.state.data.Type, price:this.state.data.price = this.state.data.price , productquantity:this.state.count, productimage:this.state.data.productimage});
+            console.log(update)
 
         }
-        this.setState({
-            cart: update
-        });
         fetch('/product/', {
                 method: 'POST',
-
                 body: JSON.stringify({
                     _id:update[0].id,
                     productquantity:update[0].productquantity
-
-
-
                 }),
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
@@ -74,13 +77,12 @@ class Individual extends Component {
 
         })
 
-
-
-
+        return(
+        this.setState({
+            cart: update
+        }));
 
     }
-
-
 
 
     displaydata = async () =>
@@ -95,11 +97,10 @@ class Individual extends Component {
     {
     this.displaydata()
 
-
-
     }
 
     render() {
+
         return (
             <div className="Men">
                 <div className={'name'}>
@@ -107,13 +108,13 @@ class Individual extends Component {
                     <div className={'type'}> £ {this.state.data.price}</div>
                 <div className={'type'}>  {this.state.data.Type}</div>
                     <div className={'Gender'}> {this.state.data.Gender}</div>
-
-
-
                 </div>
                 <img className="individualimage" src={this.state.data.productimage} />
-                <div> </div>
-                <button onClick={() => this.add(this.state.data._id)}>add to cart</button>
+
+
+                <button className="buttoncart" onClick={() => this.add()}>add to cart</button>
+                <Cart cart={this.state.cart[0] ? this.state.cart[0]: 'empty'}  />
+
 
             </div>
         );
