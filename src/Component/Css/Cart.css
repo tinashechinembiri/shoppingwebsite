@@ -1,0 +1,54 @@
+.cartpagelist
+{
+    display: flex;
+
+    list-style-type: none;
+    flex-direction: row;
+    margin: 10px 10px 10px 3px;
+    padding-left: 0px;
+}
+.Basket
+{
+    font-family: "Britannic Bold";
+}
+.Cartname
+{
+    padding: 0.9rem;
+
+}
+.imagecart
+{
+    width: 100px;
+    height: 100px;
+    left: 0;
+}
+.infolist
+{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    font-family: "Britannic Bold";
+    font-weight: bolder;
+    border-style: solid;
+    background-color: lightgrey;
+    border-color: gray;
+
+}
+.infolist li
+{
+    padding: 2rem;
+}
+.Cartnamequantity
+{
+    padding-top: 0.9rem;
+    padding-left: 3rem;
+}
+.Cartnameprice
+{
+    padding-top: 0.9rem;
+    padding-left: 2.9rem;
+}
+.button
+{
+    background-color: green;
+}
