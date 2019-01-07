@@ -1,6 +1,6 @@
 var data = []
 var Shoppingcart = function () {
-const items = []
+
 
 };
     Shoppingcart.add =(product, productquantity)=>
@@ -43,7 +43,7 @@ const items = []
         console.log("update cart")
             console.log(Shoppingcart.getitems()[0].id)
 
-        console.log(product._id)
+
         for (var i = 0;  i <Shoppingcart.getitems().length; i++ )
         {
             if (Shoppingcart.getitems()[i].id.toString() === product._id.toString()) {
@@ -66,8 +66,8 @@ const items = []
     Shoppingcart.removeItem = (product) =>
     {
         var current = Shoppingcart.fidbyid(product);
-        var currentindex = this.data.indexOf(current);
-        this.data.splice(currentindex, 1);
+        var currentindex = data.indexOf(current);
+        data.splice(currentindex, 1);
     }
 
 module.exports = Shoppingcart ;

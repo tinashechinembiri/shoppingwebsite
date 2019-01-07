@@ -34,18 +34,19 @@ console.log(req.body._id)
 )
 router.put('/product/', (req,res)=>
 {
+    console.log(req.body.newquantity)
     Product.findById(req.body.id)
         .exec()
         .then(
             product => {
-
                 try {
 
-                    console.log(req.body.id)
+                    console.log(product)
                     shoppingcart.updateitem(product, parseInt(req.body.newquantity));
                    Product.productquantity -= parseInt(req.body.productquantity) - parseInt(req.body.newquantity)
-
-                    res.status(200).send({ success: true, message: 'Item successfully added to cart' })
+                    console.log("%firstdata", "color:blue",  Product.productquantity )
+                    console.log(shoppingcart.getitems());
+                    res.status(200).send(shoppingcart.getitems())
 
                 }catch (err) {
                     console.log(err)
@@ -60,4 +61,25 @@ router.get('/product/', (req,res)=> {
     res.json(shoppingcart.getitems())
 
 })
+router.delete ('/product/', (req, res) => {
+    Product.findById(req.body.id)
+        .exec()
+        .then(product =>
+
+            {
+                console.log(product)
+                shoppingcart.removeItem(product);
+
+                Product.productquantity += req.body.productquantity;
+                res.status(200).send( shoppingcart.getitems())
+            }
+
+        )
+        .catch(err =>
+        {console.log(err)
+            res.status(500).json({errors: err})
+        })
+
+    }
+)
 module.exports = router

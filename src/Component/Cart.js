@@ -20,7 +20,7 @@ class Cart extends Component {
         if (this.props.cart !== nextProps)
         {
                 return(
-                this.setState({data: nextProps}))
+                this.setState({data:nextProps}))
         }
     }
 

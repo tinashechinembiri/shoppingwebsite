@@ -11,18 +11,15 @@ class Individual extends Component {
             cart:[],
             count: 1
         };
-
     }
     getData =()=>{
         try {
 
     let id =this.props.match.params.id
             return axios.get('/api/'+id)
-
         }catch (e) {
             console.error(e);
         }
-
     }
 
     add = () => {
@@ -34,12 +31,9 @@ class Individual extends Component {
                 this.state.count++
                 if (cartitems.productquantity >= 1)
                 {
-
                     found = true;
                     cartitems.productquantity = this.state.count;
                     cartitems.price = this.state.data.price * this.state.count
-
-
                     return cartitems
                 }
                 else {
@@ -51,11 +45,8 @@ class Individual extends Component {
         )
         if (!found)
         {
-
-
             update.push({id:this.state.data._id, name:this.state.data.name, Type:this.state.data.Type, price:this.state.data.price = this.state.data.price , productquantity:this.state.count, productimage:this.state.data.productimage});
             console.log(update)
-
         }
         fetch('/product/', {
                 method: 'POST',
@@ -68,15 +59,12 @@ class Individual extends Component {
                     'Content-type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 }
-
             }
         ).then(function(response){
             return response.json()
         }).then(function(body){
             console.log(body);
-
         })
-
         return(
         this.setState({
             cart: update
