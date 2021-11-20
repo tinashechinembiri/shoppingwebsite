@@ -23,7 +23,7 @@ console.log(req.body._id)
                 
             }catch (err) {
                 console.log(err)
-                res.status(403).send({ success: false, message: err+'failed2' })
+                res.status(500).send({ success: false, message: err+'failed2' })
             }
         }
 
@@ -50,7 +50,7 @@ router.put('/product/', (req,res)=>
 
                 }catch (err) {
                     console.log(err)
-                    res.status(403).send({ success: false, message: err+'failed2' })
+                    res.status(500).send({ success: false, message: err+'failed2' })
                 }
             }
         )
